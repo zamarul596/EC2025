@@ -1,20 +1,23 @@
 import streamlit as st
 
-# Set the title and icon for the page
-st.set_page_config(
-    page_title="Program Apprentice 3u1i@FHPK",
-    page_icon="🎓", 
-)
+# Title and subtitle
+st.title("🌟 My First Streamlit App")
+st.subheader("A simple example without pandas or numpy")
 
-analysis = st.Page('PLO_sum.py', title='Pencapaian Akademik', icon=":material/school:")
-#overall = st.Page('Overall_PLO.py', title="Overall PLO")
-industri = st.Page('Industry_List.py', title='Pencapaian Industri', icon=":material/business:")
-home = st.Page('home.py', title='Homepage', default=True, icon=":material/home:")
+# Text input
+name = st.text_input("What's your name?", "Guest")
 
-pg = st.navigation(
-        {
-            "Menu": [home, analysis, industri]
-        }
-    )
+# Number input
+age = st.number_input("Enter your age:", min_value=1, max_value=120, value=25)
 
-pg.run()
+# Checkbox
+if st.checkbox("Show greeting"):
+    st.write(f"Hello, **{name}**! 👋 You are {age} years old.")
+
+# Button
+if st.button("Click me"):
+    st.success("🎉 You clicked the button!")
+
+# Select box
+color = st.selectbox("Pick a color", ["Red", "Green", "Blue"])
+st.write(f"Your favorite color is: {color}")
